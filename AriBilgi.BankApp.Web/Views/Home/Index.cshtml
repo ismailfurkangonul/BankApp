@@ -1,0 +1,39 @@
+﻿@using AriBilgi.BankApp.Web.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<ApplicationUserDTO>
+
+
+
+<table class="mt-4 table table-hover table-bordered table-sm">
+
+    <thead>
+        <tr>
+
+            <td>Name</td>
+            <td>Surname</td>
+            <td>Account Count</td>
+            <td><a href="/Home/CreateUser" class="btn-sm btn-primary">Yeni Kullanıcı Ekle</a></td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            foreach (ApplicationUserDTO item in Model)
+            {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td><span class="badge bg-danger">@item.AccountCount</span></td>
+                    <td><a href="/Account/Index?UserId=@item.Id" class="btn-sm btn-success">Hesap Ekle</a></td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+
+</table>
